@@ -1,0 +1,28 @@
+body {
+  background-color: #78a4b3;
+}
+
+h1 {
+  color: #8d3ca6;
+  text-align: center;
+  margin: 1.3em;
+}
+
+div {
+  text-align: center;
+}
+
+input {
+  margin: 2em;
+}
+
+h3 {
+  color: #d7bde2;
+  margin-bottom: 2em;
+}
+
+input {
+  type: text;
+  color: #000000;
+
+}
