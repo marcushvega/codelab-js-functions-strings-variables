@@ -9,8 +9,9 @@ function promptIt(id) {
   //var element = document.getElementById(id)
   var theText
 
-   if (id === 'nameBox'){
-    theText = "Enter your name"
+  if (id === 'nameBox'){
+    theText = 'Enter your name'
+    nam.setAttribute("disabled", false)
   }
   else if (id === 'favColor') {
     theText = "Enter your favorite color"
@@ -18,6 +19,9 @@ function promptIt(id) {
   else if (id === 'numberBox') {
     //Edit this so this prompt prompts an audio
     theText = "Enter a number between 1 and 1,000,000"
+  }
+  else {
+    theText = "Crap, I'm confused."
   }
 
   var input = prompt(theText)
