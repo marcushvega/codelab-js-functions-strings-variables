@@ -34,5 +34,10 @@ button {
   text-shadow: green 1px 1px;
   font-family: cursive;
   font-size: 3rem;
-  display: none;
+}
+
+p {
+  text-align: center;
+  font-size: 2rem;
+  
 }

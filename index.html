@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+<!-- My piece got too extensive and I started feeling myself drift away
+  from this project, so I shortened it to base requirements-->
 <html>
   <head>
     <title>Functions and Strings</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
-    <h1>A Name Square</h1>
+    <h1>A Name Holder</h1>
     <div>
       <input id="nameBox" title="Name Box" onclick="promptIt('nameBox')"
           placeholder=" Enter your name">
@@ -16,8 +18,11 @@
     </div>
     <script src="/script.js"></script>
     <div>
-      <button id="reset">Reset the text boxes.</button>
-      <button id="theButt">Click Me.</button>
+      <button id="reset" title="Resets the fields" onclick="resetThem()">
+        Reset the text boxes.</button>
     </div>
+    <p id="name">The name you chose is:</p>
+    <p id="color">The color you chose is:</p>
+    <p id="number">The number you chose is:</p>
   </body>
 </html>
