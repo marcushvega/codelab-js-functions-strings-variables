@@ -26,3 +26,13 @@ input {
   color: #000000;
 
 }
+
+button {
+  width: 40rem;
+  height: 10rem;
+  text-decoration: underline;
+  text-shadow: green 1px 1px;
+  font-family: cursive;
+  font-size: 3rem;
+  display: none;
+}

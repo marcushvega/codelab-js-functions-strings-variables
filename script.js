@@ -2,26 +2,30 @@ var nam = document.getElementById('nameBox')
 var num = document.getElementById('numberBox')
 var color = document.getElementById('favColor')
 
-
 //Attempts to get the prompt to prompt based on textbox clicked.
 function promptIt(id) {
   //console.log()
   //var element = document.getElementById(id)
   var theText
 
+  //Disables text boxes after user enters values.
   if (id === 'nameBox'){
     theText = 'Enter your name'
     nam.setAttribute("disabled", false)
   }
   else if (id === 'favColor') {
     theText = "Enter your favorite color"
+    color.setAttribute("disabled", false)
   }
   else if (id === 'numberBox') {
-    //Edit this so this prompt prompts an audio
     theText = "Enter a number between 1 and 1,000,000"
+      if (theText > 1000000 || theText < 1){
+        promptIt('number')
+      }
+    num.setAttribute("disabled", false)
   }
   else {
-    theText = "Crap, I'm confused."
+    theText = "Good job. You broke my site."
   }
 
   var input = prompt(theText)
@@ -33,7 +37,6 @@ function promptIt(id) {
     document.getElementById('favColor').value = input
   }
   else if (id === 'numberBox') {
-    //Edit this so this prompt prompts an audio
     document.getElementById('numberBox').value = input
   }
 
