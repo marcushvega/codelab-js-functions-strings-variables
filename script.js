@@ -1,14 +1,17 @@
 var namBox = document.getElementById('nameBox')
 var numBox = document.getElementById('numberBox')
 var colorBox = document.getElementById('favColor')
-var button = document.getElementsById('reset')
+var button = document.getElementById('reset')
 
-var numP = document.getElementsById('number')
-var namP = document.getElementsById('name')
-var colorP = document.getElementsById('color')
+var numP = document.getElementById('numberP')
+var namP = document.getElementById('nameP')
+var colorP = document.getElementById('colorP')
+
+var counter = 0
 
 //Attempts to get the prompt to prompt based on textbox clicked.
 function promptIt(id) {
+  //use console.log() to check what is going on in the code
   //console.log()
   //var element = document.getElementById(id)
   var theText
@@ -16,7 +19,7 @@ function promptIt(id) {
   //Disables text boxes after user enters values.
   if (id === 'nameBox'){
     theText = 'Enter your name'
-    namBox.setAttribute("disabled", false)
+    namBox.disabled = true
   }
   else if (id === 'favColor') {
     theText = "Enter your favorite color"
@@ -24,9 +27,8 @@ function promptIt(id) {
   }
   else if (id === 'numberBox') {
     theText = "Enter a number between 1 and 1,000,000"
-      if (theText > 1000000 || theText < 1){
-        promptIt('number')
-      }
+    counter++
+    console.log(counter)
     numBox.setAttribute("disabled", false)
   }
   else {
@@ -42,10 +44,26 @@ function promptIt(id) {
     colorBox.value = input
   }
   else if (id === 'numberBox') {
+    console.log(counter)
+    /*
+    The line below makes input a number and then (g) globally replaces all
+    commas with nothing. Basically, it removes all commas from numbers so that
+    they can be checked against other numbers.
+    */
+    input = Number(input.replace(/,/g,''))
     numBox.value = input
+    if (input > 1000000 || input < 1){
+      //prompts for a number as long as it 1) is a number and 2) is a number
+      //between 1 and 1,000,000
+      promptIt('numberBox')
+      counter++
+      console.log(counter)
+    }
   }
   setInnards()
 }
+
+//Number(myNumber.replace(/,/g,''))
 
 function resetThem() {
   namBox.value = ""
@@ -59,8 +77,19 @@ function resetThem() {
 }
 
 function setInnards() {
-  if (namBox.disabled === false){
-    namP.innerHTML = "The name you chose is:" + namBox.value
+  //console.log(namP)
+  /*
+    Did not use else if statements because innerHTML will not be changed if
+    text fields are changed "out of order"
+  */
+  if (namBox.disabled === true){
+    namP.innerHTML = "The name you chose is: " + namBox.value
+  }
+  if (numBox.disabled === true){
+    numP.innerHTML = "The number you chose is: " + numBox.value
+  }
+  if (colorBox.disabled === true){
+    colorP.innerHTML = "The color you chose is: " + colorBox.value
   }
 }
 /*nam.addEventListener("focus", promptIt, false) //ctrl + shift + D duplicates lines
